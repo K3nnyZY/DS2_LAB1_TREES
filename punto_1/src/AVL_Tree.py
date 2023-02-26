@@ -1,11 +1,10 @@
-class TreeNode:
-    def __init__(self, data):
-        self.data = data
-        self.left = None
-        self.right = None
-        self.height = 1
+from Node import Node
 
 class AVLTree:
+    """AVL tree class and functions
+    -----------------
+    atributes:
+    root = Node"""
     def __init__(self):
         self.root = None
 
@@ -15,7 +14,7 @@ class AVLTree:
 
     def recursive_insert(self, node, data):
         if not node:
-            return TreeNode(data)
+            return Node(data)
         elif data < node.data:
             node.left = self.recursive_insert(node.left, data)
         else:
