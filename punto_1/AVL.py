@@ -187,3 +187,29 @@ class AVL_Tree:
             return root
         return self.get_min_value_node(root.left)
     
+
+    COUNT = [10]
+    def print2DUtil(self, root, space) :
+    
+        if (root == None) :
+            return
+    
+        space += self.COUNT[0]
+    
+        self.print2DUtil(root.right, space)
+    
+
+        print()
+        for i in range(self.COUNT[0], space):
+            print(end = " ")
+        print(root.user_id)
+    
+        # Process left child
+        self.print2DUtil(root.left, space)
+    
+    # Wrapper para la funcion print2DUtil()
+    def print2D(self,root) :
+        
+        
+        self.print2DUtil(root, 2)
+    
