@@ -5,6 +5,47 @@ class DNSTree:
 
     def insert(self, name, ip, parent=None):
         if self.root is None:
-            self.root = DNSNode(name, ip, parent)
+            self.root = DNSNode(name, ip)
         else:
-            self.root.addChild(self)
+            P = self.Level_Order_Search(parent)
+            if P is None:
+                return "No existe el Nodo"
+            else:
+                P.child.append(DNSNode(name, ip, parent))
+    
+    def Level_Order_Search(self, parent):
+        """
+        Searches and returns the object Node if it is present in the tree.
+        Attributes
+        ----------
+        value: int. value to be searched in the tree.
+        """
+        traversed = []
+        traversed.append(self.root)
+        if self.root is None:
+            return None
+        while traversed != []:
+            if traversed[0].name == parent:
+                return traversed[0]
+            x = traversed.pop(0) 
+            if x.child:
+                traversed.extend(x.child)
+        return None
+    
+    def Level_Order_traversal(self):
+        """
+        Prints the level order traversal algorithm
+        Attributes
+        ----------
+        None.
+        """
+        P = self.root
+        traversed = []
+        traversed.append(P)
+        if P is None:
+            return None
+        while traversed != []:
+            print(traversed[0].name)
+            x = traversed.pop(0) 
+            if x.child:
+                traversed.extend(x.child)

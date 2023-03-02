@@ -4,11 +4,9 @@ class DNSNode():
         self.ip = ip
         self.parent = parent
         self.child = []
-        if parent:
-            parent.child.append(self)
 
     def __str__(self) -> str:
-        return f"IP {self.ip} corresponde a {self.name} dentro de {self.parent.name}"
+        return f"IP {self.ip} corresponde a {self.name} dentro de {self.parent}"
     
     def addChild(self, child_node):
         self.child.append(child_node)
