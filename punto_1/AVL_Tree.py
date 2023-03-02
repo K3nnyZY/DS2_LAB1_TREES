@@ -1,12 +1,5 @@
 import csv
-
-class Node:
-    def __init__(self, user_id, user_name):
-        self.user_id = user_id
-        self.user_name = user_name
-        self.height = 1
-        self.left = None
-        self.right = None
+from Node import Node
 
 class AVLTree:
     def __init__(self):
@@ -102,26 +95,26 @@ class AVLTree:
             print(f"User name: {node.user_name}, User ID (ASCII): {node.user_id}")
             self.inorder_traversal(node.right)
 
-def process_csv_files(csv_files):
-    user_ids = set()
+    def build_tree(self, csv_files):
+        user_ids = set()
 
-    for filename in csv_files:
-        with open(filename, newline='') as csvfile:
-            reader = csv.DictReader(csvfile)
-            for row in reader:
-                user_id_ascii = sum(ord(c) for c in row['User_ID'])
-                user_name = row['User_name']
-                user_ids.add((user_id_ascii, user_name))
+        for filename in csv_files:
+            with open(filename, newline='') as csvfile:
+                reader = csv.DictReader(csvfile)
+                for row in reader:
+                    user_id_ascii = sum(ord(c) for c in row['User_ID'])
+                    user_name = row['User_name']
+                    user_ids.add((user_id_ascii, user_name))
+        return user_ids
 
+
+if __name__ == '__main__':
     avl_tree = AVLTree()
+
+    csv_files = ["./csv/User_track_data.csv", "./csv/User_track_data_2.csv", "./csv/User_track_data_3.csv"]
+    user_ids = avl_tree.build_tree(csv_files)
 
     for user_id_ascii, user_name in user_ids:
         avl_tree.insert(user_id_ascii, user_name)
 
     avl_tree.inorder_traversal(avl_tree.root)
-
-
-if __name__ == '__main__':
-    csv_files = ["./csv/User_track_data.csv", "./csv/User_track_data_2.csv", "./csv/User_track_data_3.csv"]
-    process_csv_files(csv_files)
-
