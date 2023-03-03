@@ -1,0 +1,35 @@
+Los árboles-B+
+
+Los árboles-B+ son una mejora a los árboles-B ya conocidos que se basan en ser arboles binarios implementados para que su busqueda de un 
+dato sea eficiente teniendo la raiz a su izquierda los menores y a su derecha los mayores a el, en donde se comienza a usar el uso 
+de claves como indices en las hojas, en la raiz y en los nodos necesarios para que se defina un recorrido optimo para la busqueda 
+para las acciones de inserción y eliminación.
+Caracteristicas de los arboles B+:
+  -Los árboles-B+ son necesariamente binarios, aunque la mayoria de veces la raíz como mínimo debe de tener dos decendientes.
+  -Normalmente no son arboles balanceados
+  -Tienen un valor númerico, que representa la mediana de su jerarquía dentro de los datos que contiene el nodo, es decir al cual se 
+  ingresará para encontrar la información.
+  -En las páginas de las hojas todas ellas tienen la misma altura.
+  -Como la información se encuentra almacenada en las páginas de las hojas, es posible duplicar claves
+A menudo se usan árboles binarios de búsqueda para ordenar listas de valores, minimizando el número de lecturas, evitando tener que 
+ordenar dichas listas y usando las claves para las busquedas.
+Las operaciones básicas:
+  -Insertar una clave.
+  -Eliminar una clave.
+  -Buscar una clave.
+Un ejemplo de un arbol-B+
+[img-1.png](https://postimg.cc/zyMqndFk)
+Esta clase de árboles a pesar de que ocupan más espacio que los árboles-B son usados para el almacenamiento de información o base de datos, 
+el ejemplo más evidente de este son las carpetas cuando contienen subcarpetas toman el comportamiento de los árboles-B+, así mismo en la 
+forma de buscar la información contenida.
+Ejemplo de ejercicio:
+Para determinada serie de claves  5,10,6,9,7,13,22, realizar el arbol B+ con una raiz
+SOL:
+  -se toma en cuenta que cantidad de claves se quieren para cada página
+  -desde la raiz se ingresan las 4 primeras claves
+  -dejamos en la raíz el número que sea la media y los menores iran a la izquierda, los mayores a la derecha, pero como primer número el de la raiz
+  -se repite el proceso para las siguientes 4 claves hasta que las páginas se llenen
+  -una vez se llenen se sacan dos numeros que sean la mediana de los valores se reorganiza los valores y se repite hasta tener el arbol-B+.
+sol:
+[img-2.png](https://postimg.cc/JDZvHxpt)
+[img-3.png](https://postimg.cc/d7K8t9Z5)
