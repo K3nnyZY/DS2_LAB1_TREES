@@ -6,7 +6,7 @@ class Node:
         self.user_name = user_name
         self.left = None
         self.right = None
-        self.level = 0
+        self.level = 1
 
     def __str__(self) -> str:
         return f"Node value: {self.user_id}"

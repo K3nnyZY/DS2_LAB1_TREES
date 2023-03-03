@@ -183,7 +183,19 @@ class AVL_Tree():
         if root is None:
             return 0
         temp = self.Search_max(root)
-        return temp - root.level
+        return temp - root.level + 1
+    
+
+    def get_height_node(self, root: Node, user_id):
+        """Función para obtener la altura de un nodo específico"""
+        if root is None:
+            return 0
+        if root.user_id == user_id:
+            return 1
+        if user_id > root.user_id:
+            return 1 + self.get_height_node(root.right, user_id)
+        else:
+            return 1 + self.get_height_node(root.left, user_id)
 
 
     def LevelTraversal(self):
@@ -202,6 +214,46 @@ class AVL_Tree():
         elif level > 1:
             self.current_level(root.left, level-1)
             self.current_level(root.right, level-1)
+
+
+    def find_uncle(self, root: Node, user_id):
+        """Función para buscar el tío de un nodo"""
+        if root is None or root.user_id == user_id:
+            return None
+        parent = self.find_parent(root, user_id)
+        if parent is None:
+            return None
+        grand_parent = self.find_parent(root, parent.user_id)
+        if grand_parent is None:
+            return None
+        if grand_parent.left == parent:
+            return grand_parent.right
+        else:
+            return grand_parent.left
+
+
+    def find_grand_parent(self, root: Node, user_id):
+        """Función para buscar el abuelo de un nodo"""
+        if root is None or root.user_id == user_id:
+            return None
+        parent = self.find_parent(root, user_id)
+        if parent is None:
+            return None
+        return self.find_parent(root, parent.user_id)
+
+
+    def find_parent(self, root: Node, user_id):
+        """Función para buscar el padre de un nodo"""
+        if root is None:
+            return None
+        if root.left is not None and root.left.user_id == user_id:
+            return root
+        if root.right is not None and root.right.user_id == user_id:
+            return root
+        if user_id < root.user_id:
+            return self.find_parent(root.left, user_id)
+        else:
+            return self.find_parent(root.right, user_id)
 
     
     COUNT = [10]
