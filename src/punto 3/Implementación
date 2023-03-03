@@ -37,7 +37,7 @@ tam = 3
 y los mayores a la derecha, comparando acada uno de los elemento para su posicion
 
 def ArbolB(self, data, padre):
-  if (self.izq > r)
+  if (self.izq > r):
     if self.izq != None:
       self.izq.ArbolB (padre,data)
     if self.der != None:
