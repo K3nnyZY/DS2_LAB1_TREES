@@ -6,6 +6,68 @@ class AVL_Tree():
         self.root: Node = None
 
 
+    def delete(self, user_id):
+        self.root = self._delete(self.root, user_id)
+
+    def _delete(self, root, user_id):
+        if root is None:
+            return root
+
+        elif user_id < root.user_id:
+            root.left = self._delete(root.left, user_id)
+
+        elif user_id > root.user_id:
+            root.right = self._delete(root.right, user_id)
+
+        else:
+            if root.left is None:
+                temp = root.right
+                root = None
+                return temp
+
+            elif root.right is None:
+                temp = root.left
+                root = None
+                return temp
+
+            temp = self.min_value_node(root.right)
+            root.user_id = temp.user_id
+            root.user_name = temp.user_name
+            root.right = self._delete(root.right, temp.user_id)
+
+        if root is None:
+            return root
+
+        root.level = 1 + max(self.get_height(root.left), self.get_height(root.right))
+
+        balance = self.Balance(root)
+
+        if balance > 1 and self.Balance(root.right) >= 0:
+            return self.left_rotate(root)
+
+        if balance < -1 and self.Balance(root.left) <= 0:
+            return self.right_rotate(root)
+
+        if balance > 1 and self.Balance(root.right) < 0:
+            root.right = self.right_rotate(root.right)
+            return self.left_rotate(root)
+
+        if balance < -1 and self.Balance(root.left) > 0:
+            root.left = self.left_rotate(root.left)
+            return self.right_rotate(root)
+        return root
+
+
+    def min_value_node(self, node):
+        current = node
+
+        while current.left is not None:
+            current = current.left
+
+        return current
+
+
+
     def Search_Node(self, root: Node, user_id):
         """Función para buscar un nodo según su dato y retornar el nodo si lo encuentra"""
         if root is None:
@@ -74,6 +136,8 @@ class AVL_Tree():
 
     def left_rotate(self, root: Node):
         child = root.left
+        if child is None:
+            return root
         root.left = child.right
         child.right = root
         self.get_level()
@@ -82,10 +146,13 @@ class AVL_Tree():
     
     def right_rotate(self, root: Node):
         child = root.right
+        if child is None:
+            return root
         root.right = child.left
         child.left = root
         self.get_level()
         return child
+
     
     
     def Balance(self, root:Node):
@@ -113,6 +180,8 @@ class AVL_Tree():
     
 
     def get_height(self, root:Node):
+        if root is None:
+            return 0
         temp = self.Search_max(root)
         return temp - root.level
 
@@ -134,22 +203,22 @@ class AVL_Tree():
             self.current_level(root.left, level-1)
             self.current_level(root.right, level-1)
 
-
+    
     COUNT = [10]
-    def print2DUtil(self, root:Node, space):
+    def _print_tree_(self, root:Node, space):
         if (root == None) :
             return
         space += self.COUNT[0]
-        self.print2DUtil(root.right, space)
+        self._print_tree_(root.right, space)
         print()
         for i in range(self.COUNT[0], space):
             print(end = " ")
-        print(f"|{root.user_id}|")
-        self.print2DUtil(root.left, space)
+        print(f"{root.user_id}")
+        self._print_tree_(root.left, space)
 
-    def print2D(self,root):
+    def print_tree(self,root):
         print("\nrepresetacion grafica del arbol:")
-        self.print2DUtil(root, 2)
+        self._print_tree_(root, 2)
 
 
     def build_tree_csv(self, *file_paths):
@@ -163,5 +232,3 @@ class AVL_Tree():
                             user_name = row['User_name']
                             self.insert(user_id, user_name)
                             existing_user_ids.add(user_id)
-
-
