@@ -1,4 +1,4 @@
-from Tree import *
+from Tree import DNSTree
 
 # Instanciando el arbol 
 DNSsTree = DNSTree()

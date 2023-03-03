@@ -9,7 +9,7 @@ class AVL_Tree():
     def delete(self, user_id):
         self.root = self._delete(self.root, user_id)
 
-    def _delete(self, root, user_id):
+    def _delete(self, root:Node, user_id):
         if root is None:
             return root
 
@@ -58,7 +58,7 @@ class AVL_Tree():
         return root
 
 
-    def min_value_node(self, node):
+    def min_value_node(self, node:Node):
         current = node
 
         while current.left is not None:

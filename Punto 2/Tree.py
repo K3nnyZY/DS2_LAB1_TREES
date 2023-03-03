@@ -1,4 +1,8 @@
-from Node import *
+"""problema: 
+Codificar un árbol DNS en el cual puedas consultar la IP del dominio a buscar, por ejemplo: si buscas Google.com te 
+devuelva 8.8.8.8 es decir, su IP"""
+
+from Node import DNSNode
 # se crea la clase Arbol DNS como DNSTree
 # con metodos para insertar, buscar y recorrer
 class DNSTree:

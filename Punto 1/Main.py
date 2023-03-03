@@ -25,7 +25,7 @@ def menu():
             tree.print_tree(tree.root)
 
         elif opcion == 1:
-            user_id = input("Ingrese el User_ID (sólo caracteres ASCII): ")
+            user_id = input("Ingrese el User_ID (lo convertira en ASCII): ")
             user_id = sum([ord(char) for char in user_id])
             user_name = input("Ingrese el User_Name: ")
             tree.insert(user_id, user_name)

@@ -15,7 +15,7 @@ class App:
         self.frame = tk.Frame(root)
         self.frame.pack()
 
-        tk.Label(self.frame, text="User_ID (solo caracteres ASCII):").grid(row=0, column=0)
+        tk.Label(self.frame, text="User_ID (lo convertira en caracteres ASCII):").grid(row=0, column=0)
         self.user_id_entry = tk.Entry(self.frame)
         self.user_id_entry.grid(row=0, column=1)
 
@@ -154,7 +154,7 @@ class App:
                     self.label.config(text=message, fg="green")
                 self.grandparent_entry.delete(0, tk.END)
             except ValueError:
-                self.label.config(text="Por favor, ingrese un User_ID válido.", fg="red")
+                self.label.config(text="Po favor, ingrese un User_ID válido.", fg="red")
         else:
             self.label.config(text="Por favor, ingrese un User_ID para encontrar su abuelo o tío.", fg="red")
 
