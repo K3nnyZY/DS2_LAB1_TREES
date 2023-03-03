@@ -1,3 +1,6 @@
+"""Se realizara un ejemplo de ejercicio donde una determinada serie de 
+claves  5,10,6,9,7,13,22, se debe realizar el arbol B+ con una raiz"""
+
 """se crea la clase del arbol"""
 class Arbol:
   def __init__(self,v):
