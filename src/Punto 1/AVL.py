@@ -451,7 +451,7 @@ class AVL_Tree():
         """
         existing_user_ids = set()
         for file_path in file_paths:
-            with open(file_path, newline='') as csvfile:
+            with open(file_path, newline='',encoding="UTF-8") as csvfile:
                 reader = csv.DictReader(csvfile)
                 for row in reader:
                     user_id = sum([ord(char) for char in row['User_ID']])
