@@ -11,9 +11,10 @@ repositorio del primer laboratorio de estrucutras de datos 2, sobre arboles.
 
 ## contenido:
 - pdf
-- punto 1
-- punto 2 
-- punto 3
+- src
+1. Punto 1
+2. Punto 2
+3. Punto3
 - CSV
 
 ### Universidad del norte
