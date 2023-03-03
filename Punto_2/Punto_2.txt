@@ -1,0 +1,13 @@
+Una DNS o Domain Name System (Sistema de Nombres de Dominios) adapta los nombres de los dominios de forma que 
+sea apta para la lectura humana y por ende fácil de recordar. Estos se rigen por medio de un sistema de jerarquías 
+en donde se encuentran los TLDs (Top Level Domains) los cuales son .com, .co, .cl, etc. los cuales se encuentran 
+alojados en un servidor raíz y por debajo de esto los dominios primarios y secundarios como Google, Amazon o Facebook, 
+estos juntos formarían los famosos links, por ejemplo Google.com donde la parte mas importantes se encuentra más a la 
+derecha.
+Como se puede inferir esto guarda relación con los árboles por cómo están compuesto, debido a que tienen una cierta 
+jerarquía entre ellos y un orden a la hora de realizar una búsqueda en estos, donde los que se encuentra en los niveles
+más altos y por ende los primeros a los que se consulta serán los TLDs, después los primarios y secundarios. 
+
+Problema
+Codificar un árbol DNS en el cual puedas consultar la IP del dominio a buscar, por ejemplo: si buscas Google.com te 
+devuelva 8.8.8.8 es decir, su IP

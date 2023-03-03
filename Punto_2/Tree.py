@@ -1,8 +1,10 @@
 from Node import *
+# se crea la clase Arbol DNS como DNSTree
+# con metodos para insertar, buscar y recorrer
 class DNSTree:
     def __init__(self):
         self.root = None
-
+    # inserta nodos al arbol se requiere de un padre
     def insert(self, name, ip, parent=None):
         if self.root is None:
             self.root = DNSNode(name, ip)
@@ -12,7 +14,7 @@ class DNSTree:
                 return "No existe el Nodo"
             else:
                 P.child.append(DNSNode(name, ip, parent))
-    
+    # busca un nodo con el parametro que resive el método y lo devuelve a una variable
     def Level_Order_Search(self, parent):
         """
         Searches and returns the object Node if it is present in the tree.
@@ -31,7 +33,7 @@ class DNSTree:
             if x.child:
                 traversed.extend(x.child)
         return None
-    
+    # recorre el arbol 
     def Level_Order_traversal(self):
         """
         Prints the level order traversal algorithm
