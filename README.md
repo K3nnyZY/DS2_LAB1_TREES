@@ -1,5 +1,5 @@
 # Laboratorio 1 de estructura de datos 2
-repositorio del primer laboratorio de estrucutras de datos 2, sobre arboles.
+Repositorio del primer laboratorio de estructuras de datos 2, sobre arboles.
 
 ## librerias utilizadas
 - tkinther
@@ -12,9 +12,9 @@ repositorio del primer laboratorio de estrucutras de datos 2, sobre arboles.
 ## contenido:
 - pdf
 - src
-  1. Punto 1
-  2. Punto 2
-  3. Punto3
+  1. Punto 1 (Arbol AVL)
+  2. Punto 2 (DNS)
+  3. Punto3 (Arbol B)
 - CSV
 
 ### Universidad del norte
