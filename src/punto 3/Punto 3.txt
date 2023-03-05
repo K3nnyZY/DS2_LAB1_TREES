@@ -24,7 +24,7 @@ Un árbol B debe tener los siguientes componentes:
 
 Aplicacion problema:
 
-  - La Universidad del Norte necesita un sistema para almacenar y buscar información sobre sus estudiantes. 
+  La Universidad del Norte en la clase de ED2 necesita un sistema para almacenar y buscar información sobre sus estudiantes. 
   Cada estudiante tiene un número de identificación único, su nombre completo y su promedio académico. 
   La universidad desea poder agregar nuevos estudiantes al sistema, buscar estudiantes por su número de 
   identificación y actualizar su promedio académico en caso de que haya cambios. Se requiere implementar una solución 
