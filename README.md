@@ -6,6 +6,11 @@ en cada carpeta se encuentra sus respectivos puntos (leer contenido) y se realiz
 
 - Todos los codigos están comentadas, y los ejemplos son de autoría propia.
 
+## Integerantes:
+- Kenny Zhu
+- Juan Aragon
+- Tomas cervecera
+
 ## ¿como ejecutar?
 1) instalar un IDE como VSCode
 2) clonar el repositorio en el terminal: 
@@ -14,12 +19,7 @@ en cada carpeta se encuentra sus respectivos puntos (leer contenido) y se realiz
   - Tkinther: pip3 install tkinther
 4) en los archivos de App.py se ejecutan los codigos
 
-## integerantes:
-- Kenny Zhu
-- Juan Aragon
-- Tomas cervecera
-
-## contenido:
+## Contenido:
 - pdf
   - El pdf del laboratorio.
 - src
