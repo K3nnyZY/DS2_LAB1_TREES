@@ -2,12 +2,17 @@
 - Repositorio del primer laboratorio de estrucuturas de datos 2, sobre arboles.
 en cada carpeta se encuentra sus respectivos puntos (leer contenido) y se realizo el laboratorio al 100% con el lenguaje de python.
 
-- Se implemento la interfaz grafica del punto 1 en Tkinther, donde es una interfaz en la cual puedes realizar las opraciones dadas acera del arbol AVL (Bonus Extra).
+- Se implemento la interfaz grafica del punto 1 con Tkinther, donde se creo una interfaz en la cual puedes realizar las opraciones dadas acera del arbol AVL (Bonus Extra).
 
 - Todos los codigos están comentadas, y los ejemplos son de autoría propia.
 
-## librerias utilizadas
-- tkinther
+## ¿como ejecutar?
+1) instalar un IDE como VSCode
+2) clonar el repositorio en el terminal: 
+  - git clone https://github.com/K3nnyZY/Data_Structures2_LAB1.git
+3) instalar las librerias utilizadas en el terminal
+  - Tkinther: pip3 install tkinther
+4) en los archivos de App.py se ejecutan los codigos
 
 ## integerantes:
 - Kenny Zhu
@@ -16,11 +21,13 @@ en cada carpeta se encuentra sus respectivos puntos (leer contenido) y se realiz
 
 ## contenido:
 - pdf
+  - El pdf del laboratorio.
 - src
   1. Punto 1 (Arbol AVL)
   2. Punto 2 (DNS)
   3. Punto3 (Arbol B)
 - CSV
+  - Se encuentran los CSV o los dados para el punto 1.
 
 ## Referencias utilizadas
 - https://chat.openai.com/chat
