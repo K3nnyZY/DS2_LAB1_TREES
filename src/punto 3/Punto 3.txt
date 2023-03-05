@@ -1,35 +1,41 @@
-Los árboles-B+
+Arboles B
 
-Los árboles-B+ son una mejora a los árboles-B ya conocidos que se basan en ser arboles binarios implementados para que su busqueda de un 
-dato sea eficiente teniendo la raiz a su izquierda los menores y a su derecha los mayores a el, en donde se comienza a usar el uso 
-de claves como indices en las hojas, en la raiz y en los nodos necesarios para que se defina un recorrido optimo para la busqueda 
-para las acciones de inserción y eliminación.
-Caracteristicas de los arboles B+:
-  -Los árboles-B+ son necesariamente binarios, aunque la mayoria de veces la raíz como mínimo debe de tener dos decendientes.
-  -Normalmente no son arboles balanceados
-  -Tienen un valor númerico, que representa la mediana de su jerarquía dentro de los datos que contiene el nodo, es decir al cual se 
-  ingresará para encontrar la información.
-  -En las páginas de las hojas todas ellas tienen la misma altura.
-  -Como la información se encuentra almacenada en las páginas de las hojas, es posible duplicar claves
-A menudo se usan árboles binarios de búsqueda para ordenar listas de valores, minimizando el número de lecturas, evitando tener que 
-ordenar dichas listas y usando las claves para las busquedas.
-Las operaciones básicas:
-  -Insertar una clave.
-  -Eliminar una clave.
-  -Buscar una clave.
-Un ejemplo de un arbol-B+
-[img-1.png](https://postimg.cc/zyMqndFk)
-Esta clase de árboles a pesar de que ocupan más espacio que los árboles-B son usados para el almacenamiento de información o base de datos, 
-el ejemplo más evidente de este son las carpetas cuando contienen subcarpetas toman el comportamiento de los árboles-B+, así mismo en la 
-forma de buscar la información contenida.
-Ejemplo de ejercicio:
-Para determinada serie de claves  5,10,6,9,7,13,22, realizar el arbol B+ con una raiz
-SOL:
-  -se toma en cuenta que cantidad de claves se quieren para cada página
-  -desde la raiz se ingresan las 4 primeras claves
-  -dejamos en la raíz el número que sea la media y los menores iran a la izquierda, los mayores a la derecha, pero como primer número el de la raiz
-  -se repite el proceso para las siguientes 4 claves hasta que las páginas se llenen
-  -una vez se llenen se sacan dos numeros que sean la mediana de los valores se reorganiza los valores y se repite hasta tener el arbol-B+.
-sol:
-[img-2.png](https://postimg.cc/JDZvHxpt)
-[img-3.png](https://postimg.cc/d7K8t9Z5)
+- un árbol B es una estructura de datos en la que los datos se organizan en un conjunto de nodos c
+onectados por enlaces. Cada nodo contiene una lista ordenada de claves y un puntero a un subárbol, 
+de manera que todas las claves en el subárbol son mayores que las claves del nodo y menores que las 
+claves del nodo siguiente.
+
+El uso de un árbol B permite la búsqueda rápida y la inserción de datos en un árbol que puede contener 
+una gran cantidad de elementos. Además, los árboles B son adecuados para operaciones en disco, ya que 
+los nodos se pueden leer y escribir en bloques de tamaño fijo. En general, los árboles B se utilizan para 
+implementar estructuras de datos que necesitan almacenar grandes cantidades de información de manera eficiente, 
+como bases de datos, sistemas de archivos y sistemas de indexación.
+
+Un árbol B debe tener los siguientes componentes:
+1. Un nodo raíz.
+2. Cada nodo puede tener un número variable de claves, que representan los valores que se almacenan en el árbol.
+3. Los nodos internos tienen punteros a otros nodos que se llaman hijos.
+4. Cada nodo, excepto la raíz y las hojas, tiene al menos t - 1 claves y t hijos, donde t es el grado mínimo del árbol.
+5. Todas las hojas tienen la misma profundidad.
+6. Cada nodo debe estar lleno a no ser que sea una hoja.
+7. Cada clave en un nodo debe estar en orden creciente.
+
+
+
+Aplicacion problema:
+
+  - La Universidad del Norte necesita un sistema para almacenar y buscar información sobre sus estudiantes. 
+  Cada estudiante tiene un número de identificación único, su nombre completo y su promedio académico. 
+  La universidad desea poder agregar nuevos estudiantes al sistema, buscar estudiantes por su número de 
+  identificación y actualizar su promedio académico en caso de que haya cambios. Se requiere implementar una solución 
+  eficiente que permita manejar grandes cantidades de información y proporcionar una respuesta rápida a las consultas realizadas. 
+  Se propone utilizar un árbol B para almacenar los datos de los estudiantes.
+
+
+posible solucion:
+
+1. Definir la estructura de datos para representar a un estudiante, que contenga su número de identificación, nombre y promedio académico.
+2. Crear una estructura de datos para el árbol B, donde se almacenan los estudiantes. Esta estructura debe contener la raíz del árbol y el grado mínimo del mismo.
+3. Implementar una función para buscar un estudiante en el árbol B a partir de su número de identificación. Para ello, se debe recorrer el árbol en busca del estudiante en cuestión y devolver su información si se encuentra, o None en caso contrario.
+4. Implementar una función para insertar un estudiante en el árbol B. Si la cantidad de estudiantes en un nodo supera el máximo permitido por el grado mínimo del árbol, se debe dividir el nodo en dos y redistribuir los estudiantes en ambos nodos.
+5. Implementar una función para actualizar el promedio académico de un estudiante en el árbol B. Para ello, se debe buscar al estudiante a partir de su número de identificación y actualizar su promedio si se encuentra.
