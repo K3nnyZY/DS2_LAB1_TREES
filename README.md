@@ -1,6 +1,10 @@
 # Laboratorio 1 de estructura de datos 2
-Repositorio del primer laboratorio de estrucuturas de datos 2, sobre arboles.
-en cada carpeta se encuentra los ejercicios, y se implemento la interfaz grafica del punto 1 en Tkinther, donde es una interfaz en la cual puedes realizar las opraciones dadas.
+- Repositorio del primer laboratorio de estrucuturas de datos 2, sobre arboles.
+en cada carpeta se encuentra sus respectivos puntos (leer contenido) y se realizo el laboratorio al 100% con el lenguaje de python.
+
+- Se implemento la interfaz grafica del punto 1 en Tkinther, donde es una interfaz en la cual puedes realizar las opraciones dadas acera del arbol AVL (Bonus Extra).
+
+- Todos los codigos están comentadas, y los ejemplos son de autoría propia.
 
 ## librerias utilizadas
 - tkinther
