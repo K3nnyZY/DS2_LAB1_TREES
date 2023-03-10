@@ -1,35 +1,48 @@
-from B_Tree import Tree
+from B_Tree import BTree
+from Node import Estudiante
 
-tree = Tree(2)
+def main():
+    arbol = BTree(2)
+    
+    while True:
+        print("\n¿Qué acción deseas realizar?")
+        print("1. Agregar un estudiante")
+        print("2. Buscar un estudiante")
+        print("3. Actualizar el promedio de un estudiante")
+        print("4. listas de estudiantes:")
+        print("5. Salir")
 
-# Insertamos algunos estudiantes
-tree.insert(100, "Mario", 4.5)
-tree.insert(200, "Maria ", 4.2)
-tree.insert(300, "Jose", 2.9)
-tree.insert(400, "Luna", 3.8)
-tree.insert(500, "Carlos", 3.1)
-tree.insert(600, "Ana", 5.0)
+        opcion = int(input("Ingresa el número de la acción deseada: "))
 
-# Imprimimos el árbol
-tree.print_tree()
+        if opcion == 1:
+            id = int(input("Ingresa el número de identificación del estudiante: "))
+            nombre = input("Ingresa el nombre completo del estudiante: ")
+            promedio = float(input("Ingresa el promedio académico del estudiante: "))
+            estudiante = Estudiante(id, nombre, promedio)
+            arbol.insert(estudiante)
 
-# Buscamos un estudiante por su ID
-std_id = 300
-result = tree.search(std_id)
-if result:
-    name, grade = result
-    print(f"se encontro el estudiante con ID {std_id}: ({name}, {grade})")
-else:
-    print(f"No se encontró el estudiante con ID {std_id}")
+        elif opcion == 2:
+            id = int(input("Ingresa el número de identificación del estudiante: "))
+            estudiante = arbol.search(id)
+            if estudiante:
+                print(f"El estudiante {estudiante.nombre} tiene un promedio de {estudiante.promedio}")
+            else:
+                print("El estudiante no se encuentra en el sistema")
 
-# Insertamos otro estudiante
-tree.insert(700, "Andres", 3.8)
-tree.print_tree()
+        elif opcion == 3:
+            id = int(input("Ingresa el número de identificación del estudiante: "))
+            nuevo_promedio = float(input("Ingresa el nuevo promedio académico del estudiante: "))
+            arbol.update_promedio(id, nuevo_promedio)
 
-std_id = 700
-result = tree.search(std_id)
-if result:
-    name, grade = result
-    print(f"Se encontro el estudiante con ID {std_id}: ({name}, {grade})")
-else:
-    print(f"No se encontró el estudiante con ID {std_id}")
+        elif opcion == 4:
+            print("lsita de estudiantes añadidos")
+            Estudiantes = arbol.get_students_list()
+            print(Estudiantes)
+
+        elif opcion == 5:
+            print("Saliendo del programa...")
+            break
+
+        else:
+            print("Opción inválida, por favor ingresa una opción válida.")
+main()
