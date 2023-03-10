@@ -12,7 +12,11 @@ def main():
         print("4. listas de estudiantes:")
         print("5. Salir")
 
-        opcion = int(input("Ingresa el número de la acción deseada: "))
+        try:
+            opcion = int(input("Ingresa el número de la acción deseada: "))
+        except ValueError:
+            print("Por favor, ingresa un número entero válido.")
+            continue
 
         if opcion == 1:
             id = int(input("Ingresa el número de identificación del estudiante: "))
@@ -35,7 +39,7 @@ def main():
             arbol.update_promedio(id, nuevo_promedio)
 
         elif opcion == 4:
-            print("lsita de estudiantes añadidos")
+            print("lista de estudiantes añadidos")
             Estudiantes = arbol.get_students_list()
             print(Estudiantes)
 

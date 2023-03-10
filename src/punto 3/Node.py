@@ -8,7 +8,7 @@ class Estudiante:
         return f"Estudiante {self.id}: {self.nombre}, promedio: {self.promedio}"
 
 class Node:
-    def __init__(self, leaf=False):
+    def __init__(self, leaf=True):
         self.keys = [] 
         self.children = [] 
         self.leaf = leaf

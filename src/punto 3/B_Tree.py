@@ -2,7 +2,7 @@ from Node import Node
 
 class BTree:
     def __init__(self, t):
-        self.root = Node(leaf=True)# Crea un nodo raíz vacío y lo asigna al atributo root
+        self.root = Node()# Crea un nodo raíz vacío y lo asigna al atributo root
         self.t = t # grado t
 
 
