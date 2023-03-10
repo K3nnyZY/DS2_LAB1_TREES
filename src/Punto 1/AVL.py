@@ -8,80 +8,91 @@ class AVL_Tree():
 
     def delete(self, user_id):
         """
-        Función para eliminar un nodo del árbol según su ID de usuario.
-        ----------------
-        Parameters:
-        user_id (int): ID del usuario del nodo que se quiere eliminar.
-        ----------------
-        Returns:
-        None
-        """
-        self.root = self._delete(self.root, user_id) # Actualiza el atributo root con el resultado de la llamada a _delete()
-
-    def _delete(self, root:Node, user_id):
-        """
-        Función recursiva para eliminar un nodo del árbol según su ID de usuario.
-        ----------------
-        Parameters:
-        root (Node): Nodo raíz del subárbol en el que se quiere eliminar el nodo.
-        user_id (int): ID del usuario del nodo que se quiere eliminar.
+        Elimina un nodo con un user_id dado del árbol AVL
         ---------------
-        Returns:
-        Node: El nodo actual, con las referencias actualizadas después de la eliminación.
+        Parameters:
+            user_id (int): identificador único del usuario a eliminar
         """
-        if root is None:
-            # Si el nodo es None, no se ha encontrado el ID del usuario, por lo que se retorna el nodo actual
+        self.root = self._delete(self.root, user_id)
+
+
+    def _delete(self, root, user_id):
+        """
+        Funcion recursiva que elimina un nodo con un user_id dado del subárbol dado
+        --------------
+        Parameters:
+            root (Node): raíz del subárbol
+            user_id (int): identificador único del usuario a eliminar
+        --------------
+        Returns:
+            root: Node con la raíz del subárbol actualizado
+        """
+        if not root: # Si no hay nodo, se devuelve el nodo
             return root
-        elif user_id < root.user_id:
-            # Si el ID del usuario es menor al ID del nodo actual, se llama recursivamente a _delete() sobre el subárbol izquierdo
+        elif user_id < root.user_id: # Se avanza por el subárbol izquierdo si el user_id es menor al user_id del nodo actual
             root.left = self._delete(root.left, user_id)
-        elif user_id > root.user_id:
-            # Si el ID del usuario es mayor al ID del nodo actual, se llama recursivamente a _delete() sobre el subárbol derecho
+        elif user_id > root.user_id: # Se avanza por el subárbol derecho si el user_id es mayor al user_id del nodo actual
             root.right = self._delete(root.right, user_id)
-        else:
-            # Si se ha encontrado el nodo con el ID del usuario
-            if root.left is None:
-                # Si el nodo no tiene hijo izquierdo, se actualizan las referencias del nodo padre para saltar el nodo que se quiere eliminar
+        else: # Se encontró el nodo con el user_id a eliminar
+            if not root.left: # Si el nodo no tiene hijo izquierdo
                 temp = root.right
                 root = None
                 return temp
-            elif root.right is None:
-                # Si el nodo no tiene hijo derecho, se actualizan las referencias del nodo padre para saltar el nodo que se quiere eliminar
+            elif not root.right: # Si el nodo no tiene hijo derecho
                 temp = root.left
                 root = None
                 return temp
-            else:
-                # Si el nodo tiene dos hijos, se busca el nodo sucesor más pequeño en el subárbol derecho y se actualizan las referencias del nodo padre para saltar el nodo sucesor
-                temp = self.min_value_node(root.right)
+            else: # Si el nodo tiene dos hijos
+                # Se encuentra el nodo con el user_id más pequeño en el subárbol derecho
+                temp = self.get_min_node(root.right)
+                # Se reemplaza el user_id del nodo actual por el user_id del nodo encontrado
                 root.user_id = temp.user_id
-                root.user_name = temp.user_name
+                # Se elimina el nodo encontrado del subárbol derecho
                 root.right = self._delete(root.right, temp.user_id)
-        # Se actualiza la altura del nodo actual
-        if root is None:
+        if not root:
             return root
-        root.level = 1 + max(self.get_height(root.left), self.get_height(root.right))
+        # Se actualiza la altura del nodo actual
+        root.height = 1 + max(self.get_height(root.left), self.get_height(root.right))
+        # Se obtiene el factor de equilibrio del nodo actual
         balance = self.Balance(root)
-        # Se chequea el balance del árbol y se realizan las rotaciones necesarias para mantenerlo
-        if balance > 1 and self.Balance(root.right) >= 0:
-            return self.left_rotate(root)
-        if balance < -1 and self.Balance(root.left) <= 0:
+        # Si el nodo está desequilibrado, se realizan rotaciones
+        # para reequilibrarlo
+        if balance > 1 and self.Balance(root.left) >= 0:
             return self.right_rotate(root)
-        if balance > 1 and self.Balance(root.right) < 0:
-            root.right = self.right_rotate(root.right)
+        if balance < -1 and self.Balance(root.right) <= 0:
             return self.left_rotate(root)
-        if balance < -1 and self.Balance(root.left) > 0:
+        if balance > 1 and self.Balance(root.left) < 0:
             root.left = self.left_rotate(root.left)
             return self.right_rotate(root)
+        if balance < -1 and self.Balance(root.right) > 0:
+            root.right = self.right_rotate(root.right)
+            return self.left_rotate(root)
         return root
 
 
-    def min_value_node(self, node:Node):
+
+    def get_max(self, root:Node):
+        """
+        Regresa el nodo mas grande en un subárbol
+        ---------------
+        Parameters:
+            root(Node): Nodo raíz del subárbol en el que se quiere encontrar el nodo con el valor maximo.
+        ----------------
+        Returns:
+        Node: El nodo con el valor maximo en el subárbol.
+        """
+        while root.right is not None:
+            root = root.right
+        return root
+
+
+    def get_min(self, node:Node):
         """
         Función para encontrar el nodo con el valor mínimo en un subárbol.
-
+        --------------
         Parameters:
         node (Node): Nodo raíz del subárbol en el que se quiere encontrar el nodo con el valor mínimo.
-
+        --------------
         Returns:
         Node: El nodo con el valor mínimo en el subárbol.
         """
