@@ -22,7 +22,7 @@ def menu():
             continue
 
         if opcion == 0:
-            tree.print_tree(tree.root)
+            tree.mostrar_arbol()
 
         elif opcion == 1:
             user_id = input("Ingrese el User_ID (lo convertira en ASCII): ")
@@ -95,4 +95,3 @@ def menu():
         elif opcion == 7:
             break
 menu()
-

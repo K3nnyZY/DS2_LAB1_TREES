@@ -1,5 +1,7 @@
 from Node import Node
 import csv
+from tkinter import Canvas
+import tkinter as tk
 
 class AVL_Tree():
     def __init__(self) -> None:
@@ -470,3 +472,26 @@ class AVL_Tree():
                         user_name = row['User_name']
                         self.insert(user_id, user_name)
                         existing_user_ids.add(user_id)
+
+
+    def dibujar_arbol(self, canvas, nodo, x, y, distancia):
+        if nodo is not None:
+            canvas.create_oval(x, y, x + 30, y + 30, fill='white', outline='black')
+            canvas.create_text(x + 15, y + 15, text=str(nodo.user_id))
+            if nodo.left is not None:
+                canvas.create_line(x + 15, y + 30, x - distancia + 15, y + 60)
+                self.dibujar_arbol(canvas, nodo.left, x - distancia, y + 60, distancia // 2)
+            if nodo.right is not None:
+                canvas.create_line(x + 15, y + 30, x + distancia + 15, y + 60)
+                self.dibujar_arbol(canvas, nodo.right, x + distancia, y + 60, distancia // 2)
+
+    def mostrar_arbol(self):
+        ventana = tk.Tk()
+        ventana.title("Árbol de Usuarios")
+
+        canvas = Canvas(ventana, width=800, height=400, bg='white')
+        canvas.pack()
+
+        self.dibujar_arbol(canvas, self.root, 400, 20, 200)
+
+        ventana.mainloop()

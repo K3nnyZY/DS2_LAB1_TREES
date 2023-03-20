@@ -66,9 +66,9 @@ class App:
         self.quit_button.grid(row=18, column=0)
 
     def print_tree(self):
-        result = self.tree.print_tree(self.tree.root)
+        result = self.tree.mostrar_arbol()
         self.label.config(text=result, fg="black")
-        self.label.config(text="Árbol mostrado en la consola.", fg="green")
+        self.label.config(text="Mostrando Arbol...", fg="green")
 
     def insert_node(self):
         user_id = self.user_id_entry.get()
